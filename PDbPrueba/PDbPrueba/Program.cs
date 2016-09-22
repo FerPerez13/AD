@@ -1,5 +1,6 @@
 using System;
 using MySql.Data.MySqlClient;
+using System.Data;
 
 namespace PDbPrueba
 {
@@ -9,9 +10,14 @@ namespace PDbPrueba
 		{
 			Console.WriteLine ("Programa para probar la conexión a la base de datos dbprueba!");
 			//Declaración de la conexión a la BBDD
-			MySqlConnection mySqlConnection = new MySqlConnection ("Database=dbprueba;User Id=root;Password=sistemas");
 			//Abrimos
-			mySqlConnection.Open ();
+			IDbConnection dbConnection = new MySqlConnection ("Database=dbprueba;User Id=root; Password=sistemas");
+			IDbCommand dbCommand = dbConnection.CreateCommand ();
+			IDbDataParameter dbDataParameter = dbCommand.CreateParameter();
+			IDbDataParameter dbDataParameter2 = dbCommand.CreateParameter();
+			dbConnection.Open ();
+
+
 			//Menú
 			Console.WriteLine ("");
 			Console.WriteLine ("Que desea hacer:");
@@ -29,22 +35,52 @@ namespace PDbPrueba
 			if(sel!=0){
 				switch(sel){
 				case 1:
-					Console.WriteLine ("Opción 1");
-					break;
+						Console.WriteLine("Introduce una categoria");
+						String nombre = Console.ReadLine ();
+						dbCommand.CommandText="insert into categoria (nombre) values ('"+nombre+"');";
+						dbCommand.ExecuteNonQuery();
+						break;
 				case 2:
-					break;
+//						dbCommand.CommandText="select * from categoria";
+//						while(dataReader.Read()){
+//							//Procesar
+//							int id = dataReader.GetInt32(0);
+//							string nombre = dataReader.GetString(1);
+//							Console.WriteLine("ID "+id+" "+"Nombre "+nombre);
+//						}
+//						dataReader.Close();
+						Console.WriteLine("Introduce una categoria");
+						String catmod = Console.ReadLine();
+						Console.WriteLine("Introduce una ID");
+						String idmod = Console.ReadLine();
+						int idint = int.Parse(idmod);
+						dbCommand.CommandText="update categoria set nombre = ('"+catmod+"') where id = ('"+idint+"')";
+						dbCommand.ExecuteNonQuery();
+						dbCommand.Dispose();
+						break;
 				case 3:
+
 					break;
 				case 4:
-					break;
+						dbCommand.CommandText = "select * from categoria";
+						IDataReader dataReader = dbCommand.ExecuteReader ();
+						while(dataReader.Read()){
+							//Procesar
+							int id = dataReader.GetInt32(0);
+							string nom = dataReader.GetString(1);
+							Console.WriteLine("ID "+id+" "+"Nombre "+nom);
+						}
+						dataReader.Close();
+						break;
 				case 0:
-					break;
+						dbConnection.Close();
+						Console.WriteLine("Hasta pronto!!");
+						break;
 				}
 			}
-			Console.WriteLine (sel);
 
 			//Cerramos
-			mySqlConnection.Close ();
+			dbConnection.Close ();
 			Console.WriteLine ("");
 			Console.WriteLine ("Developed by FerPerez13");
 		}

@@ -1,30 +1,36 @@
 using System;
+using System.Data;
+using MySql.Data.MySqlClient;
 using System.Text.RegularExpressions;
 
 namespace PCategoria
 {
 	class MainClass
 	{
+		public enum Option {SALIR, NUEVO, EDITAR, BORRAR, LISTAR}
+
+		public static IDbConnection dbConection;
+
 		public static void Main (string[] args)
 		{
-			Console.WriteLine ("Hello World!");
-			getOption ();
+			dbConection = new MySqlConnection ("Database=dbprueba;User Id=root;Password=sistemas");
 
 			while (true) {
-				int option = getOption ();
+				Option option = getOption ();
 				switch (option) {
-				case 0:
+				case Option.SALIR:
+					dbConection.Close ();
 					return;
-				case 1:
+				case Option.NUEVO:
 					nuevo ();
 					break;
-				case 2:
+				case Option.EDITAR:
 					editar ();
 					break;
-				case 3:
+				case Option.BORRAR:
 					borrar ();
 					break;
-				case 4:
+				case Option.LISTAR:
 					listar ();
 					break;
 				}
@@ -32,7 +38,7 @@ namespace PCategoria
 
 		}
 
-		private static int getOption(){
+		private static Option getOption(){
 			string options = "01234";
 			while (true) {
 				Console.WriteLine ("0. Salir");
@@ -47,21 +53,54 @@ namespace PCategoria
 			}
 		}
 
+		private static string INSERT_SQL = "insert into categoria (nombre) values (@nombre)";
 		private static void nuevo(){
-			
+			string nombre = leerString ("Nombre: ");
+			IDbCommand dbCommand = dbConection.CreateCommand ();
+			dbCommand.CommandText = INSERT_SQL;
+			addParameter(dbCommand, "nombre", nombre);
+			dbCommand.ExecuteNonQuery ();
 		}
 
 		private static void editar(){
 
 		}
 
+		private static string DELETE_SQL = "delete from categoría where id = @id";
 		private static void borrar(){
-
+			long id = readLong ("Id: ");
+			IDbCommand dbCommand = dbConection.CreateCommand ();
+			dbCommand.CommandText = DELETE_SQL;
+			addParameter (dbCommand, "id", id);
 		}
 
 		private static void listar(){
 
 		}
 
-	}
+		private static void addParameter (IDbCommand dbCommand, string name, Object value){
+			IDbDataAdapter dbDataParameter = dbCommand.CreateParameter ();
+			dbDataParameter.ParameterName = name;
+			dbDataParameter.Value = value;
+			dbCommand.Parameters.Add (dbDataParameter);
+		}
+
+		private static string leerString (string label){
+			Console.Write (label);
+			string data = Console.ReadLine ();
+			data = data.Trim;
+			if (!data.Equals (""))
+				return data;
+			Console.WriteLine("No puede quedar vacío. Vuelve a introducir")
+		}
+
+		private static long readLong(string label){
+			while (true){
+				Console.WriteLine (label);
+				string dara = Console.ReadLine ();
+				try{
+
+				}catch{
+
+				}
 }

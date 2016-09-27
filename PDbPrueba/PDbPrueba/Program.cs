@@ -41,14 +41,6 @@ namespace PDbPrueba
 						dbCommand.ExecuteNonQuery();
 						break;
 				case 2:
-//						dbCommand.CommandText="select * from categoria";
-//						while(dataReader.Read()){
-//							//Procesar
-//							int id = dataReader.GetInt32(0);
-//							string nombre = dataReader.GetString(1);
-//							Console.WriteLine("ID "+id+" "+"Nombre "+nombre);
-//						}
-//						dataReader.Close();
 						Console.WriteLine("Introduce una categoria");
 						String catmod = Console.ReadLine();
 						Console.WriteLine("Introduce una ID");

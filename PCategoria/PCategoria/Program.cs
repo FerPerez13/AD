@@ -1,106 +1,150 @@
+using MySql.Data.MySqlClient;
 using System;
 using System.Data;
-using MySql.Data.MySqlClient;
 using System.Text.RegularExpressions;
 
+//Este está copiado del repositorio de Luis, porque tenía problemas que no podía solucionar. 
 namespace PCategoria
 {
 	class MainClass
 	{
 		public enum Option {SALIR, NUEVO, EDITAR, BORRAR, LISTAR}
 
-		public static IDbConnection dbConection;
+		public static IDbConnection dbConnection;
 
 		public static void Main (string[] args)
 		{
-			dbConection = new MySqlConnection ("Database=dbprueba;User Id=root;Password=sistemas");
-
+			dbConnection = new MySqlConnection (
+				"Database=dbprueba;User Id=root;Password=sistemas"
+				);
+			dbConnection.Open ();
 			while (true) {
 				Option option = getOption ();
 				switch (option) {
-				case Option.SALIR:
-					dbConection.Close ();
+					case Option.SALIR:
+					dbConnection.Close ();
 					return;
-				case Option.NUEVO:
+					case Option.NUEVO:
 					nuevo ();
 					break;
-				case Option.EDITAR:
+					case Option.EDITAR:
 					editar ();
 					break;
-				case Option.BORRAR:
+					case Option.BORRAR:
 					borrar ();
 					break;
-				case Option.LISTAR:
+					case Option.LISTAR:
 					listar ();
 					break;
 				}
 			}
-
-		}
-
-		private static Option getOption(){
-			string options = "01234";
-			while (true) {
-				Console.WriteLine ("0. Salir");
-				Console.WriteLine ("1. Nuevo");
-				Console.WriteLine ("2. Editar");
-				Console.WriteLine ("3. Borrar");
-				Console.WriteLine ("4. Listar");
-				string option = Console.ReadLine ();
-				if (Regex.IsMatch (option, "^[01234]$"))
-					return int.Parse (option);
-				Console.WriteLine ("Opción inválida. Vuelve a introducir.");
-			}
 		}
 
 		private static string INSERT_SQL = "insert into categoria (nombre) values (@nombre)";
-		private static void nuevo(){
-			string nombre = leerString ("Nombre: ");
-			IDbCommand dbCommand = dbConection.CreateCommand ();
+		private static void nuevo() {
+			string nombre = readString("Nombre: ");
+			IDbCommand dbCommand = dbConnection.CreateCommand ();
 			dbCommand.CommandText = INSERT_SQL;
-			addParameter(dbCommand, "nombre", nombre);
-			dbCommand.ExecuteNonQuery ();
+			addParameter (dbCommand, "nombre", nombre);
+			try {
+				dbCommand.ExecuteNonQuery ();
+			} catch (MySqlException ex) {
+				Console.WriteLine (getUserMessage(ex));				
+			}
 		}
 
-		private static void editar(){
-
-		}
-
-		private static string DELETE_SQL = "delete from categoría where id = @id";
-		private static void borrar(){
+		private static string UPDATE_SQL = "update categoria set nombre=@nombre where id=@id";
+		private static void editar() {
 			long id = readLong ("Id: ");
-			IDbCommand dbCommand = dbConection.CreateCommand ();
+			string nombre = readString("Nombre: ");
+			IDbCommand dbCommand = dbConnection.CreateCommand ();
+			dbCommand.CommandText = UPDATE_SQL;
+			addParameter (dbCommand, "id", id);
+			addParameter (dbCommand, "nombre", nombre);
+			try {
+				int filas = dbCommand.ExecuteNonQuery (); //devolverá 0 o 1
+				if (filas == 0)
+					Console.WriteLine ("Id no existente. No existe ningún registro con ese Id.");
+			} catch (MySqlException ex) {
+				Console.WriteLine (getUserMessage(ex));				
+			}
+		}
+
+		private static string DELETE_SQL = "delete from categoria where id=@id";
+		private static void borrar() {
+			long id = readLong ("Id: ");
+			IDbCommand dbCommand = dbConnection.CreateCommand ();
 			dbCommand.CommandText = DELETE_SQL;
 			addParameter (dbCommand, "id", id);
+			int filas = dbCommand.ExecuteNonQuery (); //devolverá 0 o 1
+			if (filas == 0)
+				Console.WriteLine ("Id no existente. No existe ningún registro con ese Id.");
 		}
 
-		private static void listar(){
-
+		private static string SELECT_SQL = "select * from categoria order by id";
+		private static void listar() {
+			IDbCommand dbCommand = dbConnection.CreateCommand ();
+			dbCommand.CommandText = SELECT_SQL;
+			IDataReader dataReader = dbCommand.ExecuteReader ();
+			Console.WriteLine("{0,5} {1}", "Id", "Nombre");
+			while (dataReader.Read()) 
+				Console.WriteLine ("{0,5} {1}", dataReader ["id"], dataReader ["nombre"]); 
+			dataReader.Close ();
 		}
 
-		private static void addParameter (IDbCommand dbCommand, string name, Object value){
-			IDbDataAdapter dbDataParameter = dbCommand.CreateParameter ();
+		private const int ER_DUP_ENTRY = 1062;
+		private static string getUserMessage(MySqlException ex) {
+			switch (ex.Number) {
+				case ER_DUP_ENTRY:
+				return "Dato duplicado. Ese dato ya existe.";
+			}
+			return ex.Message;
+		}
+
+		private static void addParameter(IDbCommand dbCommand, string name, object value) {
+			IDbDataParameter dbDataParameter = dbCommand.CreateParameter ();
 			dbDataParameter.ParameterName = name;
 			dbDataParameter.Value = value;
 			dbCommand.Parameters.Add (dbDataParameter);
 		}
 
-		private static string leerString (string label){
-			Console.Write (label);
-			string data = Console.ReadLine ();
-			data = data.Trim;
-			if (!data.Equals (""))
-				return data;
-			Console.WriteLine("No puede quedar vacío. Vuelve a introducir")
+		private static long readLong(string label) {
+			while (true) {
+				Console.Write (label);
+				string data = Console.ReadLine ();
+				try {
+					return long.Parse (data);
+				} catch {
+					Console.WriteLine ("Sólo números, por favor. Vuelve a introducir");
+				}
+			}
 		}
 
-		private static long readLong(string label){
-			while (true){
-				Console.WriteLine (label);
-				string dara = Console.ReadLine ();
-				try{
+		private static string readString (string label) {
+			while (true) {
+				Console.Write (label);
+				string data = Console.ReadLine ();
+				data = data.Trim ();
+				if (!data.Equals (""))
+					return data;
+				Console.WriteLine ("No puede quedar vacío. Vuelve a introducir.");
+			}
+		}
 
-				}catch{
-
-				}
+		private static Option getOption() {
+			string pattern = "^[01234]$";
+			while (true) {
+				Console.WriteLine ("0 Salir");
+				Console.WriteLine ("1 Nuevo");
+				Console.WriteLine ("2 Editar");
+				Console.WriteLine ("3 Borrar");
+				Console.WriteLine ("4 Listar");
+				string option = Console.ReadLine ();
+				if (Regex.IsMatch (option, pattern))
+					return (Option)int.Parse (option);
+				Console.WriteLine("Opción inválida. Vuelve a introducir.");
+			}
+		}
+	}
 }
+

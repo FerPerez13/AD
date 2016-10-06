@@ -1,9 +1,9 @@
 ﻿<Properties>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug|x86" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="PTreeView/MainWindow.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="PArticulo/MainWindow.cs">
     <Files>
-      <File FileName="PTreeView/Program.cs" Line="1" Column="1" />
-      <File FileName="PTreeView/MainWindow.cs" Line="10" Column="62" />
+      <File FileName="PArticulo/MainWindow.cs" Line="1" Column="1" />
+      <File FileName="Org.InstitutoSerpis.Ad/TreeViewHelper.cs" Line="1" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

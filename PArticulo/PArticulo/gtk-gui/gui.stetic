@@ -6,14 +6,25 @@
   </configuration>
   <import>
     <widget-library name="glade-sharp, Version=2.12.0.0, Culture=neutral, PublicKeyToken=35e10195dab3c99f" />
-    <widget-library name="../bin/Debug/PTreeView.exe" internal="true" />
+    <widget-library name="../../Org.InstitutoSerpis.Ad/bin/Debug/Org.InstitutoSerpis.Ad.dll" />
+    <widget-library name="../bin/Debug/PArticulo.exe" internal="true" />
   </import>
-  <widget class="Gtk.Window" id="MainWindow" design-size="361 300">
+  <widget class="Gtk.Window" id="MainWindow" design-size="400 314">
     <action-group name="Default">
       <action id="newAction">
         <property name="Type">Action</property>
         <property name="Label" translatable="yes" />
         <property name="StockId">gtk-new</property>
+      </action>
+      <action id="removeAction">
+        <property name="Type">Action</property>
+        <property name="Label" translatable="yes" />
+        <property name="StockId">gtk-remove</property>
+      </action>
+      <action id="refreshAction">
+        <property name="Type">Action</property>
+        <property name="Label" translatable="yes" />
+        <property name="StockId">gtk-refresh</property>
       </action>
     </action-group>
     <property name="MemberName" />
@@ -25,17 +36,14 @@
         <property name="MemberName" />
         <property name="Spacing">6</property>
         <child>
-          <widget class="Gtk.Alignment" id="alignment1">
+          <widget class="Gtk.Toolbar" id="toolbar1">
             <property name="MemberName" />
-            <child>
-              <widget class="Gtk.Toolbar" id="toolbar1">
-                <property name="MemberName" />
-                <property name="ShowArrow">False</property>
-                <node name="__gtksharp_144_Stetic_Editor_ActionToolbar" type="Toolbar">
-                  <node type="Toolitem" action="newAction" />
-                </node>
-              </widget>
-            </child>
+            <property name="ShowArrow">False</property>
+            <node name="__gtksharp_122_Stetic_Editor_ActionToolbar" type="Toolbar">
+              <node type="Toolitem" action="newAction" />
+              <node type="Toolitem" action="removeAction" />
+              <node type="Toolitem" action="refreshAction" />
+            </node>
           </widget>
           <packing>
             <property name="Position">0</property>
@@ -49,7 +57,7 @@
             <property name="MemberName" />
             <property name="ShadowType">In</property>
             <child>
-              <widget class="Gtk.TreeView" id="treeview1">
+              <widget class="Gtk.TreeView" id="treeView">
                 <property name="MemberName" />
                 <property name="CanFocus">True</property>
                 <property name="ShowScrollbars">True</property>

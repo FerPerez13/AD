@@ -3,8 +3,18 @@
   <MonoDevelop.Ide.Workbench ActiveDocument="PArticulo/MainWindow.cs">
     <Files>
       <File FileName="PArticulo/MainWindow.cs" Line="1" Column="1" />
-      <File FileName="Org.InstitutoSerpis.Ad/TreeViewHelper.cs" Line="1" Column="1" />
+      <File FileName="Org.InstitutoSerpis.Ad/TreeViewHelper.cs" Line="26" Column="1" />
     </Files>
+    <Pads>
+      <Pad Id="ProjectPad">
+        <State expanded="True">
+          <Node name="Org.InstitutoSerpis.Ad" expanded="True" />
+          <Node name="PArticulo" expanded="True">
+            <Node name="MainWindow.cs" selected="True" />
+          </Node>
+        </State>
+      </Pad>
+    </Pads>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />

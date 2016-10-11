@@ -1,21 +1,29 @@
 using System;
 using Gtk;
 using Org.InstitutoSerpis.Ad;
+using System.Collections.Generic;
+using System.Collections;
+
 
 public partial class MainWindow: Gtk.Window
 {	
 	public MainWindow (): base (Gtk.WindowType.Toplevel)
 	{
 		Build ();
-		string[] columnNames = { "id", "nombre", "precio" };
-		TreeViewHelper.AppendColumns(treeView, columnNames);
-			
-		ListStore listStore = new ListStore (typeof(long), typeof(string), typeof(decimal));
-		treeView.Model = listStore;
-		listStore.AppendValues (1L, "categoría 1", 1.5m);
-		listStore.AppendValues (2L, "categoría 2", 2.5m);
 
+//		IList list = new List<Articulo> ();
+//		list.Add (new Articulo(1L, "Articulo1", 1.5m));
+//		list.Add (new Articulo(2L, "Articulo2", 2.5m));
+//		list.Add (new Articulo(3L, "Articulo3", 3.5m));
+//		list.Add (new Articulo(4L, "Articulo4", 4.5m));
 
+		IList list = new List<Categoria> ();
+		list.Add (new Categoria(1L, "Categoria1"));
+		list.Add (new Categoria(2L, "Categoria2"));
+		list.Add (new Categoria(3L, "Categoria3"));
+		list.Add (new Categoria(4L, "Categoria4"));
+
+		TreeViewHelper.Fill (treeView, list);
 	}
 
 	protected void OnDeleteEvent (object sender, DeleteEventArgs a)
@@ -24,28 +32,23 @@ public partial class MainWindow: Gtk.Window
 		a.RetVal = true;
 	}
 }
-/* ALTERNATIVA ANTERIOR
-		treeView.AppendColumn ("id", new CellRendererText (), //"text", 0);
-			delegate(TreeViewColumn tree_column, CellRenderer cell, TreeModel tree_model, TreeIter iter) {
 
-				CellRendererText cellRendererText = (CellRendererText)cell;
-				object value = tree_model.GetValue(iter, 0);
-				cellRendererText.Text = value.ToString();
-		});
+public class Categoria{
+	public Categoria(long id, string nom){
+		Id = id;
+		Nombre = nom;
+	}
+	public long Id { get; set;}
+	public string Nombre { get; set;}
+}
 
-		treeView.AppendColumn ("nombre", new CellRendererText (), //"text", 1);
-		  delegate(TreeViewColumn tree_column, CellRenderer cell, TreeModel tree_model, TreeIter iter) {
-
-			CellRendererText cellRendererText = (CellRendererText)cell;
-			object value = tree_model.GetValue(iter, 1);
-			cellRendererText.Text = value.ToString();
-		});
-
-		treeView.AppendColumn ("precio", new CellRendererText (), 
-			delegate(TreeViewColumn tree_column, CellRenderer cell, TreeModel tree_model, TreeIter iter) {
-
-				CellRendererText cellRendererText = (CellRendererText)cell;
-				object value = tree_model.GetValue(iter, 2);
-				cellRendererText.Text = value.ToString();
-		});
-		*/
+public class Articulo{
+	public Articulo(long id, string nom, decimal precio){
+		Id = id;
+		Nombre = nom;
+		Precio = precio;
+	}
+	public long Id { get; set;}
+	public string Nombre { get; set;}
+	public decimal Precio { get; set;}
+}

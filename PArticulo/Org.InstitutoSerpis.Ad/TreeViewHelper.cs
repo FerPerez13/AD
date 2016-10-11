@@ -31,7 +31,9 @@ namespace Org.InstitutoSerpis.Ad
 			AppendColumns (treeView, propertyNames.ToArray());
 		}
 
-		public static void Fill (TreeView treeView, IList list){
+		private static void appendColumns(TreeView treeView, IList list){
+			if (treeView.Columns.Length != 0)
+				return;
 			Type listType = list.GetType ();
 			Type elementType = listType.GetGenericArguments () [0];
 			PropertyInfo[] propertyInfos = elementType.GetProperties ();
@@ -44,11 +46,20 @@ namespace Org.InstitutoSerpis.Ad
 					cellRendererText.Text = value == null ? "" : value.ToString(); //Si el valor no es null sale value.ToString
 				});
 			}
+		}
+		private static void appendValues(TreeView treeView, IList list){
 			ListStore listStore = new ListStore (typeof(object));		
 			treeView.Model = listStore;
 			foreach (object item in list)
 				listStore.AppendValues (item);
 		}
+
+	
+		public static void Fill (TreeView treeView, IList list){
+			appendColumns (treeView, list);	//Añadimos columnas
+			appendValues (treeView, list); //Añado datos
+		}
+			
 	}
 }
 

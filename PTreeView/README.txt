@@ -1,3 +1,3 @@
-He tenido un problema, me he dado cuenta que he actualizado el PArticulo con las instrucciones de este programa. 
+Este es el PTreeView, que me equivoque con el nombre. 
 
-Siento la confusión. 
+Siento el error

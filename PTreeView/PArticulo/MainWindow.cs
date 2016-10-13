@@ -11,17 +11,17 @@ public partial class MainWindow: Gtk.Window
 	{
 		Build ();
 
-//		IList list = new List<Articulo> ();
-//		list.Add (new Articulo(1L, "Articulo1", 1.5m));
-//		list.Add (new Articulo(2L, "Articulo2", 2.5m));
-//		list.Add (new Articulo(3L, "Articulo3", 3.5m));
-//		list.Add (new Articulo(4L, "Articulo4", 4.5m));
+		IList list = new List<Articulo> ();
+		list.Add (new Articulo(1L, "Articulo1", 1.5m));
+		list.Add (new Articulo(2L, "Articulo2", 2.5m));
+		list.Add (new Articulo(3L, "Articulo3", 3.5m));
+		list.Add (new Articulo(4L, "Articulo4", 4.5m));
 
-		IList list = new List<Categoria> ();
-		list.Add (new Categoria(1L, "Categoria1"));
-		list.Add (new Categoria(2L, "Categoria2"));
-		list.Add (new Categoria(3L, "Categoria3"));
-		list.Add (new Categoria(4L, "Categoria4"));
+//		IList list = new List<Categoria> ();
+//		list.Add (new Categoria(1L, "Categoria1"));
+//		list.Add (new Categoria(2L, "Categoria2"));
+//		list.Add (new Categoria(3L, "Categoria3"));
+//		list.Add (new Categoria(4L, "Categoria4"));
 
 		TreeViewHelper.Fill (treeView, list);
 	}

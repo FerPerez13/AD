@@ -5,10 +5,10 @@
     <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
     <ProductVersion>10.0.0</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{F13C6C7D-D463-458B-8273-868591A88267}</ProjectGuid>
+    <ProjectGuid>{0252DC89-4453-4D3E-B282-ACE58C5D54B4}</ProjectGuid>
     <OutputType>WinExe</OutputType>
-    <RootNamespace>PTreeView</RootNamespace>
-    <AssemblyName>PTreeView</AssemblyName>
+    <RootNamespace>PArticulo2</RootNamespace>
+    <AssemblyName>PArticulo2</AssemblyName>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
     <DebugSymbols>true</DebugSymbols>

@@ -1,10 +1,23 @@
 ﻿<Properties>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug|x86" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="PTreeView/MainWindow.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Org.InstitutoSerpis.Ad/TreeViewHelper.cs">
     <Files>
-      <File FileName="PTreeView/Program.cs" Line="1" Column="1" />
-      <File FileName="PTreeView/MainWindow.cs" Line="10" Column="62" />
+      <File FileName="PArticulo/MainWindow.cs" Line="10" Column="54" />
+      <File FileName="Org.InstitutoSerpis.Ad/TreeViewHelper.cs" Line="1" Column="1" />
     </Files>
+    <Pads>
+      <Pad Id="ProjectPad">
+        <State expanded="True">
+          <Node name="Org.InstitutoSerpis.Ad" expanded="True">
+            <Node name="TreeViewHelper.cs" selected="True" />
+          </Node>
+          <Node name="PTreeView" expanded="True" />
+        </State>
+      </Pad>
+      <Pad Id="MonoDevelop.Debugger.WatchPad">
+        <State />
+      </Pad>
+    </Pads>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />

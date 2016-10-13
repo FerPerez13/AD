@@ -8,11 +8,10 @@
     <Pads>
       <Pad Id="ProjectPad">
         <State expanded="True">
-          <Node name="PArticulo" expanded="True" selected="True" />
+          <Node name="PArticulo2" expanded="True">
+            <Node name="Program.cs" selected="True" />
+          </Node>
         </State>
-      </Pad>
-      <Pad Id="MonoDevelop.Debugger.WatchPad">
-        <State />
       </Pad>
     </Pads>
   </MonoDevelop.Ide.Workbench>

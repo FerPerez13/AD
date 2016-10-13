@@ -1,7 +1,7 @@
 using System;
 using Gtk;
 
-namespace PTreeView
+namespace PArticulo2
 {
 	class MainClass
 	{

@@ -1,14 +1,17 @@
 ﻿<Properties>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug|x86" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="PArticulo2/Program.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="PArticulo/MainWindow.cs">
     <Files>
-      <File FileName="PArticulo2/Program.cs" Line="13" Column="6" />
-      <File FileName="PArticulo2/MainWindow.cs" Line="1" Column="1" />
+      <File FileName="PArticulo/MainWindow.cs" Line="18" Column="50" />
+      <File FileName="Org.InstitutoSerpis.Ad/TreeViewHelper.cs" Line="33" Column="3" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
         <State expanded="True">
-          <Node name="PArticulo" expanded="True" selected="True" />
+          <Node name="Org.InstitutoSerpis.Ad" expanded="True" />
+          <Node name="PArticulo" expanded="True">
+            <Node name="MainWindow.cs" selected="True" />
+          </Node>
         </State>
       </Pad>
       <Pad Id="MonoDevelop.Debugger.WatchPad">

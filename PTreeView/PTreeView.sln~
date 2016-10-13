@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 11.00
 # Visual Studio 2010
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PTreeView", "PTreeView.csproj", "{3C1DC883-DCC5-424A-9B5C-B6A6DB048F8C}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PTreeView", "PArticulo\PTreeView.csproj", "{3C1DC883-DCC5-424A-9B5C-B6A6DB048F8C}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Org.InstitutoSerpis.Ad", "Org.InstitutoSerpis.Ad\Org.InstitutoSerpis.Ad.csproj", "{D2DF4483-553A-45BC-A118-315C5903A1B1}"
 EndProject

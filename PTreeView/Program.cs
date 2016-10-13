@@ -1,7 +1,7 @@
 using System;
 using Gtk;
 
-namespace PArticulo2
+namespace PArticulo
 {
 	class MainClass
 	{

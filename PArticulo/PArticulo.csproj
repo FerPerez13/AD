@@ -5,10 +5,10 @@
     <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
     <ProductVersion>10.0.0</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{0252DC89-4453-4D3E-B282-ACE58C5D54B4}</ProjectGuid>
+    <ProjectGuid>{42D04E37-7F96-438F-89FA-94C5A00F0895}</ProjectGuid>
     <OutputType>WinExe</OutputType>
-    <RootNamespace>PArticulo2</RootNamespace>
-    <AssemblyName>PArticulo2</AssemblyName>
+    <RootNamespace>PArticulo</RootNamespace>
+    <AssemblyName>PArticulo</AssemblyName>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
     <DebugSymbols>true</DebugSymbols>
@@ -57,6 +57,13 @@
       <Package>gtk-sharp-2.0</Package>
     </Reference>
     <Reference Include="Mono.Posix" />
+    <Reference Include="MySql.Data">
+      <HintPath>..\..\..\..\usr\lib\cli\MySql.Data-6.4\MySql.Data.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Data" />
+    <Reference Include="Org.InstitutoSerpis.Ad">
+      <HintPath>..\PTreeView\Org.InstitutoSerpis.Ad\bin\Debug\Org.InstitutoSerpis.Ad.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="gtk-gui\gui.stetic">

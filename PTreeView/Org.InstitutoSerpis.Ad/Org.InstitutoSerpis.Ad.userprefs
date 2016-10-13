@@ -1,17 +1,15 @@
 ﻿<Properties>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug|x86" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="MainWindow.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="../../PArticulo/MainWindow.cs">
     <Files>
-      <File FileName="Program.cs" Line="1" Column="1" />
-      <File FileName="MainWindow.cs" Line="22" Column="82" />
-      <File FileName="Articulo.cs" Line="8" Column="66" />
+      <File FileName="../../PArticulo/Program.cs" Line="1" Column="1" />
+      <File FileName="../../PArticulo/MainWindow.cs" Line="21" Column="17" />
+      <File FileName="../../PArticulo/Articulo.cs" Line="2" Column="14" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
         <State expanded="True">
-          <Node name="PArticulo" expanded="True">
-            <Node name="MainWindow.cs" selected="True" />
-          </Node>
+          <Node name="Org.InstitutoSerpis.Ad" expanded="True" />
         </State>
       </Pad>
       <Pad Id="MonoDevelop.Debugger.WatchPad">

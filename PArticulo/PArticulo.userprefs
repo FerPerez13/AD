@@ -3,15 +3,14 @@
   <MonoDevelop.Ide.Workbench ActiveDocument="MainWindow.cs">
     <Files>
       <File FileName="Program.cs" Line="1" Column="1" />
-      <File FileName="MainWindow.cs" Line="22" Column="82" />
-      <File FileName="Articulo.cs" Line="8" Column="66" />
+      <File FileName="../PTreeView/Org.InstitutoSerpis.Ad/ComboBoxHelper.cs" Line="10" Column="16" />
+      <File FileName="ArticuloView.cs" Line="32" Column="12" />
+      <File FileName="MainWindow.cs" Line="40" Column="40" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
         <State expanded="True">
-          <Node name="PArticulo" expanded="True">
-            <Node name="MainWindow.cs" selected="True" />
-          </Node>
+          <Node name="Org.InstitutoSerpis.Ad" expanded="True" />
         </State>
       </Pad>
       <Pad Id="MonoDevelop.Debugger.WatchPad">

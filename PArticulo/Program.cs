@@ -9,7 +9,10 @@ namespace PArticulo
 		{
 			Application.Init ();
 			MainWindow win = new MainWindow ();
+			ArticuloView art = new ArticuloView ();
+
 			win.Show ();
+			art.Show ();
 			Application.Run ();
 		}
 	}

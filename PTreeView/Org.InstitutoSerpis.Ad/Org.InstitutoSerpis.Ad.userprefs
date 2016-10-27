@@ -1,16 +1,20 @@
 ﻿<Properties>
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug|x86" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="../../PArticulo/MainWindow.cs">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="ComboBoxHelper.cs">
     <Files>
+      <File FileName="../../PArticulo/MainWindow.cs" Line="29" Column="12" />
+      <File FileName="../../PArticulo/ArticuloView.cs" Line="37" Column="79" />
       <File FileName="../../PArticulo/Program.cs" Line="1" Column="1" />
-      <File FileName="ComboBoxHelper.cs" Line="10" Column="16" />
-      <File FileName="../../PArticulo/ArticuloView.cs" Line="32" Column="12" />
-      <File FileName="../../PArticulo/MainWindow.cs" Line="40" Column="40" />
+      <File FileName="ComboBoxHelper.cs" Line="22" Column="13" />
+      <File FileName="DbCommandHelper.cs" Line="17" Column="1" />
+      <File FileName="Null.cs" Line="5" Column="8" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
         <State expanded="True">
-          <Node name="Org.InstitutoSerpis.Ad" expanded="True" />
+          <Node name="Org.InstitutoSerpis.Ad" expanded="True">
+            <Node name="ComboBoxHelper.cs" selected="True" />
+          </Node>
         </State>
       </Pad>
       <Pad Id="MonoDevelop.Debugger.WatchPad">

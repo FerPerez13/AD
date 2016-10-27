@@ -64,6 +64,10 @@
     <Reference Include="Org.InstitutoSerpis.Ad">
       <HintPath>..\PTreeView\Org.InstitutoSerpis.Ad\bin\Debug\Org.InstitutoSerpis.Ad.dll</HintPath>
     </Reference>
+    <Reference Include="ICSharpCode.NRefactory, Version=5.0.0.0, Culture=neutral, PublicKeyToken=d4bfe873e7598c49">
+      <Private>False</Private>
+      <Package>monodevelop</Package>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="gtk-gui\gui.stetic">
@@ -78,6 +82,8 @@
     <Compile Include="Articulo.cs" />
     <Compile Include="gtk-gui\PArticulo.ArticuloView.cs" />
     <Compile Include="ArticuloView.cs" />
+    <Compile Include="App.cs" />
+    <Compile Include="gtk-gui\PArticulo.App.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>

@@ -9,13 +9,13 @@ namespace Org.InstitutoSerpis.Ad{
 
 		}
 
-		private static App instance = new App ();
+		public static App instance = new App ();
 
 		public static App Instance{
 			get{ return instance; }
 		}
 
-		private IDbConnection dbConneection;
+		public IDbConnection dbConneection;
 
 		public IDbConnection DbConnection{
 			get{return dbConneection;}

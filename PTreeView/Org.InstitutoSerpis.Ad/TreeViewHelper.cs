@@ -31,7 +31,7 @@ namespace Org.InstitutoSerpis.Ad
 			AppendColumns (treeView, propertyNames.ToArray());
 		}
 
-		private static void appendColumns(TreeView treeView, IList list){
+		public static void appendColumns(TreeView treeView, IList list){
 			if (treeView.Columns.Length != 0)
 				return;
 			Type listType = list.GetType ();

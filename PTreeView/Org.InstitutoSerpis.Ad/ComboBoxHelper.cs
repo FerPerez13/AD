@@ -34,6 +34,21 @@ namespace Org.InstitutoSerpis.Ad
 				cellRendererText.Text=value.ToString();
 			});
 		}
+
+		public static object GetId(ComboBox comboBox){
+			TreeIter treeIter;
+			comboBox.GetActiveIter (out treeIter);
+			object item = comboBox.Model.GetValue (treeIter, 0);
+//			return item == Null.Value ? null : (object)(((Categoria)item).Id); //Esto lo declaramos más claro abajo
+
+//			if (item == Null.Value)
+//				return null;
+//			Type elementType = item.GetType ();
+//			PropertyInfo propertyInfo = elementType.GetProperty ("Id");
+//			return propertyInfo.GetValue (item, null); //Abajo traducimos todo esto en una sola línea
+		
+			return item == Null.Value ? null : item.GetType ().GetProperty ("Id").GetValue (item, null);
+		}
 	}
 }
 

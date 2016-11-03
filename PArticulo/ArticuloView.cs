@@ -24,27 +24,13 @@ namespace PArticulo
 
 			saveAction.Activated += delegate {
 				Console.WriteLine ("saveAction.Activated");
-				string nombre = entryNombre.Text;
-				decimal precio = (decimal)spinButtonPrecio.Value;
-				comboBoxCategoria.GetActiveIter();
-
-				//Estas líneas tienen que estar siempre juntas
-				TreeIter treeIter;
-				comboBoxCategoria.GetActiveIter(out treeIter);
-
-				object item = comboBoxCategoria.Model.GetValue(treeIter, 0);
-
-				object value = item == Null.Value ? null : (object)(((Categoria) item).Id);
-
-				string insertSql = "insert into articulo (nombre, precio, categoria) values (@nombre, @precio, @categoria)";
-				IDbCommand dbCommand = App.Instance.DbConnection.CreateCommand();
-				dbCommand.CommandText = insertSql;
-				DbCommandHelper.AddParameter(dbCommand, "nombre", nombre);
-				DbCommandHelper.AddParameter(dbCommand, "precio", precio);
-
-				dbCommand.ExecuteNonQuery();
-
+				Articulo articulo = new Articulo();
+				articulo.Nombre = entryNombre.Text;
+				articulo.Precio = (decimal)spinButtonPrecio.Value;
+				articulo.Categoria = (long?)ComboBoxHelper.GetId(comboBoxCategoria);
+				ArticuloDao.Save(articulo);
 			};
+
 			entryNombre.Changed += delegate {
 				string content = entryNombre.Text.Trim ();
 				saveAction.Sensitive = content != string.Empty;
@@ -57,32 +43,12 @@ namespace PArticulo
 		}
 
 		private void fill(){
-			List<Categoria> list = new List<Categoria> ();
-			IDbCommand dbCommand = App.Instance.DbConnection.CreateCommand ();
-			string selectSql = "select * from categoria order by nombre";
-			dbCommand.CommandText = selectSql;
-			IDataReader dataReader = dbCommand.ExecuteReader ();
-			while (dataReader.Read()) {
-				long id = (long)dataReader ["id"];
-				string nombre = (string)dataReader ["nombre"];
-				Categoria categoria = new Categoria (id, nombre);
-				list.Add (categoria);
-			}
-			dataReader.Close ();
+			IList list = CategoriaDao.GetList ();
+			ComboBoxHelper.Fill (comboBoxCategoria, list, "Nombre");
 		}
 
 	}
 
-	public class Categoria{
 
-		public long Id{get;set;}
-		public string Nombre{ get; set;}
-
-		public Categoria(long id, string nombre){
-			Id = id;
-			Nombre = nombre;
-		}
-
-	}
 }
 

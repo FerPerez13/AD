@@ -1,20 +1,20 @@
 ﻿<Properties>
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="ComboBoxHelper.cs">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug|x86" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="../../PArticulo/MainWindow.cs">
     <Files>
-      <File FileName="../../PArticulo/MainWindow.cs" Line="29" Column="12" />
-      <File FileName="../../PArticulo/ArticuloView.cs" Line="37" Column="79" />
-      <File FileName="../../PArticulo/Program.cs" Line="1" Column="1" />
-      <File FileName="ComboBoxHelper.cs" Line="22" Column="13" />
-      <File FileName="DbCommandHelper.cs" Line="17" Column="1" />
-      <File FileName="Null.cs" Line="5" Column="8" />
+      <File FileName="../../PArticulo/MainWindow.cs" Line="49" Column="3" />
+      <File FileName="../../PArticulo/ArticuloDao.cs" Line="13" Column="3" />
+      <File FileName="../../PArticulo/ArticuloView.cs" Line="33" Column="4" />
+      <File FileName="../../PArticulo/CategoriaDao.cs" Line="9" Column="28" />
+      <File FileName="ComboBoxHelper.cs" Line="19" Column="18" />
+      <File FileName="../../PArticulo/DbCommandHelper.cs" Line="18" Column="1" />
+      <File FileName="../../PArticulo/App.cs" Line="12" Column="22" />
+      <File FileName="../../PArticulo/Articulo.cs" Line="1" Column="1" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
         <State expanded="True">
-          <Node name="Org.InstitutoSerpis.Ad" expanded="True">
-            <Node name="ComboBoxHelper.cs" selected="True" />
-          </Node>
+          <Node name="Org.InstitutoSerpis.Ad" expanded="True" />
         </State>
       </Pad>
       <Pad Id="MonoDevelop.Debugger.WatchPad">

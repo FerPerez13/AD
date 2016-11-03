@@ -6,7 +6,6 @@
   </configuration>
   <import>
     <widget-library name="glade-sharp, Version=2.12.0.0, Culture=neutral, PublicKeyToken=35e10195dab3c99f" />
-    <widget-library name="../../PTreeView/Org.InstitutoSerpis.Ad/bin/Debug/Org.InstitutoSerpis.Ad.dll" />
     <widget-library name="../bin/Debug/PArticulo.exe" internal="true" />
   </import>
   <widget class="Gtk.Window" id="MainWindow" design-size="400 300">
@@ -26,6 +25,11 @@
         <property name="Label" translatable="yes" />
         <property name="StockId">gtk-delete</property>
       </action>
+      <action id="refreshAction">
+        <property name="Type">Action</property>
+        <property name="Label" translatable="yes" />
+        <property name="StockId">gtk-refresh</property>
+      </action>
     </action-group>
     <property name="MemberName" />
     <property name="Title" translatable="yes">MainWindow</property>
@@ -44,6 +48,7 @@
               <node type="Toolitem" action="editAction" />
               <node type="Separator" />
               <node type="Toolitem" action="deleteAction" />
+              <node type="Toolitem" action="refreshAction" />
             </node>
           </widget>
           <packing>

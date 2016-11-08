@@ -9,6 +9,7 @@
     <OutputType>Library</OutputType>
     <RootNamespace>Org.InstitutoSerpis.Ad</RootNamespace>
     <AssemblyName>Org.InstitutoSerpis.Ad</AssemblyName>
+    <BaseDirectory>Org.InstitutoSerpis.Ad</BaseDirectory>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -42,10 +43,13 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="TreeViewHelper.cs" />
-    <Compile Include="ComboBoxHelper.cs" />
-    <Compile Include="Null.cs" />
-    <Compile Include="DbCommandHelper.cs" />
+    <Compile Include="Org.InstitutoSerpis.Ad\ComboBoxHelper.cs" />
+    <Compile Include="Org.InstitutoSerpis.Ad\DbCommandHelper.cs" />
+    <Compile Include="Org.InstitutoSerpis.Ad\Null.cs" />
+    <Compile Include="Org.InstitutoSerpis.Ad\TreeViewHelper.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <ItemGroup>
+    <Folder Include="Org.InstitutoSerpis.Ad\" />
+  </ItemGroup>
 </Project>

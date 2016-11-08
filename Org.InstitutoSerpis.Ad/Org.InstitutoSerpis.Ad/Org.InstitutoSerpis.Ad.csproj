@@ -48,7 +48,4 @@
     <Compile Include="TreeViewHelper.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
-  <ItemGroup>
-    <Folder Include="Org.InstitutoSerpis.Ad\" />
-  </ItemGroup>
 </Project>

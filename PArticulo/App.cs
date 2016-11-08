@@ -15,7 +15,7 @@ namespace Org.InstitutoSerpis.Ad{
 			get{ return instance; }
 		}
 
-		public IDbConnection dbConneection;
+		private IDbConnection dbConneection;
 
 		public IDbConnection DbConnection{
 			get{return dbConneection;}

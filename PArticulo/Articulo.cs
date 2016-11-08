@@ -4,7 +4,8 @@ using System;
 namespace PArticulo{
 
 	public class Articulo{
-
+		public Articulo() {
+		}
 		public Articulo (long id, string nombre, decimal? precio, long? categoria){
 			this.Id = id;
 			this.Nombre = nombre;

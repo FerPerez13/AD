@@ -13,7 +13,6 @@ namespace PArticulo
 {
 	public partial class ArticuloView : Gtk.Window
 	{
-		IDbCommand dbCommand;
 
 		public ArticuloView () : base(Gtk.WindowType.Toplevel)
 		{
@@ -37,8 +36,6 @@ namespace PArticulo
 			};
 
 			fill();
-
-			ComboBoxHelper.Fill (comboBoxCategoria, list, "Nombre");
 		
 		}
 

@@ -1,7 +1,7 @@
 using System;
 using System.Data;
 
-namespace Org.InsitutoSerpis.Ad
+namespace Org.InstitutoSerpis.Ad
 {
 	public class DbCommandHelper
 	{

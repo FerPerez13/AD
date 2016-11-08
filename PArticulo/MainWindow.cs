@@ -16,7 +16,6 @@ public partial class MainWindow: Gtk.Window
 		App.Instance.DbConnection = new MySqlConnection ("Database=dbprueba;User Id=root;Password=sistemas");
 		App.Instance.DbConnection.Open ();
 		fill ();
-		TreeViewHelper.Fill (treeView, list);
 
 		deleteAction.Activated += delegate {
 			MessageDialog messageDialog = new MessageDialog(this, DialogFlags.Modal, MessageType.Question, ButtonsType.YesNo, "¿Quieres eliminar este registro?");

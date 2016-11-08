@@ -19,7 +19,7 @@ namespace Org.InstitutoSerpis.Ad
 				listStore.AppendValues (item);
 			comboBox.Model = listStore;
 
-			comboBox.SetActiveIter = (initialTreeIter);
+			comboBox.SetActiveIter(initialTreeIter);
 			CellRendererText cellRendererText = new CellRendererText ();
 			comboBox.PackStart (cellRendererText, false);
 			comboBox.SetCellDataFunc(cellRendererText, delegate(CellLayout cell_layout, CellRenderer cell, TreeModel tree_model, TreeIter iter) {
@@ -29,8 +29,9 @@ namespace Org.InstitutoSerpis.Ad
 				//				cellRendererText.Text = categoria.Nombre;
 
 				//Ahora vamos a ver las lineas que son genericas para cualquier clase de objetos
-				//object item = tree_model.GetValue(iter,0);
-				object value = Item == Null.Value ? "<sin asignar>" : propertyInfo.GetValue(Item, null);
+				object item = tree_model.GetValue(iter,0);
+
+				object value = item == Null.Value ? "<sin asignar>" : propertyInfo.GetValue(item, null);
 				cellRendererText.Text=value.ToString();
 			});
 		}

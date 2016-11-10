@@ -8,11 +8,13 @@ namespace PArticulo
 		public static void Main (string[] args)
 		{
 			Application.Init ();
-			MainWindow win = new MainWindow ();
-			ArticuloView art = new ArticuloView ();
 
+			MainWindow win = new MainWindow ();
 			win.Show ();
-			art.Show ();
+
+			//ArticuloView art = new ArticuloView ();
+			//art.Show ();
+
 			Application.Run ();
 		}
 	}

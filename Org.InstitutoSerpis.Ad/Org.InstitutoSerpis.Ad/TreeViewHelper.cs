@@ -54,6 +54,14 @@ namespace Org.InstitutoSerpis.Ad
 				listStore.AppendValues (item);
 		}
 
+		public static object GetId(TreeView treeView){
+			TreeIter treeIter;
+			bool selected = treeView.Selection.GetSelected (out treeIter);
+			if (!selected)
+				return null;
+			object item = treeView.Model.GetValue (treeIter, 0);
+			return item == item.GetType ().GetProperty ("Id").GetValue (item, null);
+		}
 	
 		public static void Fill (TreeView treeView, IList list){
 			appendColumns (treeView, list);	//Añadimos columnas

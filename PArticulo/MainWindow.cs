@@ -16,34 +16,33 @@ public partial class MainWindow: Gtk.Window
 		App.Instance.DbConnection = new MySqlConnection ("Database=dbprueba;User Id=root;Password=sistemas");
 		App.Instance.DbConnection.Open ();
 		fill ();
+	
+		//Acciones de los Botones de la ventana
 
-		deleteAction.Activated += delegate {
-			MessageDialog messageDialog = new MessageDialog(this, DialogFlags.Modal, MessageType.Question, ButtonsType.YesNo, "¿Quieres eliminar este registro?");
-			ResponseType response = (ResponseType)messageDialog.Run();
-			if (response != ResponseType.Yes)
-				return;
-			//TODO Eliminar
-			
-		};
-		treeView.Selection.Changed += delegate {
-			bool selected = treeView.Selection.CountSelectedRows() > 0;
-			editAction.Sensitive = selected;
-			deleteAction.Sensitive = selected;
-		};
 		newAction.Activated += delegate {
 			new ArticuloView();
 		};
 		refreshAction.Activated += delegate {
 			fill();
 		};
-		new ArticuloView ();
-
+		treeView.Selection.Changed += delegate {
+			bool selected = treeView.Selection.CountSelectedRows() > 0;
+			editAction.Sensitive = selected;
+			deleteAction.Sensitive = selected;
+		};
+		deleteAction.Activated += delegate {
+			if(WindowHelper.Confirm(this, "Quieres eliminar el registro")){
+				ArticuloDao.Delete(TreeViewHelper.GetId(treeView));
+				Console.WriteLine("Borrado: "+TreeViewHelper.GetId(treeView));
+			}
+			Console.WriteLine("Borrado: "+TreeViewHelper.GetId(treeView));
+		};
 	}
 
 	private void fill (){
-		IList list = ArticuloDao.GetList ();
 		editAction.Sensitive = false;
 		deleteAction.Sensitive = false;
+		IList list = EntityDao.GetList<Articulo> ();
 		TreeViewHelper.Fill (treeView, list);
 	}
 

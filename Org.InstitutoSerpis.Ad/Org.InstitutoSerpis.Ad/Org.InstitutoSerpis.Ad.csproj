@@ -46,6 +46,9 @@
     <Compile Include="DbCommandHelper.cs" />
     <Compile Include="Null.cs" />
     <Compile Include="TreeViewHelper.cs" />
+    <Compile Include="WindowHelper.cs" />
+    <Compile Include="EntityDao.cs" />
+    <Compile Include="App.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
 </Project>

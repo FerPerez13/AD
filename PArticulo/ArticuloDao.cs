@@ -1,5 +1,6 @@
 using System;
 using System.Data;
+using System.Reflection;
 using System.Collections.Generic;
 
 using Org.InstitutoSerpis.Ad;
@@ -10,6 +11,7 @@ namespace PArticulo
 	{
 		private const string SELECT_SQL = "select * from articulo";
 		private const string INSERT_SQL = "insert into articulo (nombre, precio, categoria) values (@nombre, @precio, @categoria)";
+		private const string DELETE_SQL = "delete from articulo where id = @id";
 
 		public static List<Articulo> GetList(){
 			List<Articulo> list = new List<Articulo> ();
@@ -25,11 +27,9 @@ namespace PArticulo
 				Articulo articulo = new Articulo (id, nombre, precio, categoria);
 				list.Add (articulo);
 			}
-
 			dataReader.Close ();
 			return list;
 		}
-
 		public static void Save(Articulo articulo){
 			IDbCommand dbCommand = App.Instance.DbConnection.CreateCommand();
 			dbCommand.CommandText = INSERT_SQL;
@@ -38,7 +38,17 @@ namespace PArticulo
 			DbCommandHelper.AddParameter(dbCommand, "categoria", articulo.Categoria);
 			dbCommand.ExecuteNonQuery();
 		}
-
+		public static void Delete(object id){
+			IDbCommand dbCommand = App.Instance.DbConnection.CreateCommand ();
+			dbCommand.CommandText = DELETE_SQL;
+			DbCommandHelper.AddParameter (dbCommand, "id", id);
+			dbCommand.ExecuteNonQuery ();
+			//TODO: Lanzar Excepciones
+		}
 	}
+
+
+
+
 }
 

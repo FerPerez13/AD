@@ -78,7 +78,6 @@
     <Compile Include="Articulo.cs" />
     <Compile Include="gtk-gui\PArticulo.ArticuloView.cs" />
     <Compile Include="ArticuloView.cs" />
-    <Compile Include="App.cs" />
     <Compile Include="Categoria.cs" />
     <Compile Include="ArticuloDao.cs" />
     <Compile Include="CategoriaDao.cs" />

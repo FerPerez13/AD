@@ -1,9 +1,14 @@
 ﻿<Properties>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug|x86" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="../PArticulo/App.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="../PArticulo/MainWindow.cs">
     <Files>
-      <File FileName="../PArticulo/MainWindow.cs" Line="16" Column="8" />
-      <File FileName="../PArticulo/App.cs" Line="6" Column="2" />
+      <File FileName="../PArticulo/MainWindow.cs" Line="14" Column="3" />
+      <File FileName="../PArticulo/ArticuloDao.cs" Line="50" Column="2" />
+      <File FileName="../PArticulo/CategoriaDao.cs" Line="25" Column="24" />
+      <File FileName="../PArticulo/ArticuloView.cs" Line="39" Column="3" />
+      <File FileName="../PArticulo/Articulo.cs" Line="8" Column="4" />
+      <File FileName="Org.InstitutoSerpis.Ad/EntityDao.cs" Line="18" Column="12" />
+      <File FileName="Org.InstitutoSerpis.Ad/App.cs" Line="1" Column="1" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
@@ -12,15 +17,7 @@
         </State>
       </Pad>
       <Pad Id="ClassPad">
-        <State expanded="True">
-          <Node name="Org.InstitutoSerpis.Ad" expanded="True">
-            <Node name="Org" expanded="True">
-              <Node name="InstitutoSerpis" expanded="True">
-                <Node name="Ad" expanded="True" />
-              </Node>
-            </Node>
-          </Node>
-        </State>
+        <State expanded="True" selected="True" />
       </Pad>
     </Pads>
   </MonoDevelop.Ide.Workbench>

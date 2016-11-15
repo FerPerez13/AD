@@ -1,14 +1,12 @@
 ﻿<Properties>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug|x86" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="../PArticulo/MainWindow.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="../PArticulo/ArticuloDao.cs">
     <Files>
-      <File FileName="../PArticulo/MainWindow.cs" Line="14" Column="3" />
-      <File FileName="../PArticulo/ArticuloDao.cs" Line="50" Column="2" />
-      <File FileName="../PArticulo/CategoriaDao.cs" Line="25" Column="24" />
-      <File FileName="../PArticulo/ArticuloView.cs" Line="39" Column="3" />
-      <File FileName="../PArticulo/Articulo.cs" Line="8" Column="4" />
-      <File FileName="Org.InstitutoSerpis.Ad/EntityDao.cs" Line="18" Column="12" />
-      <File FileName="Org.InstitutoSerpis.Ad/App.cs" Line="1" Column="1" />
+      <File FileName="../PArticulo/MainWindow.cs" Line="27" Column="42" />
+      <File FileName="../PArticulo/ArticuloView.cs" Line="46" Column="3" />
+      <File FileName="Org.InstitutoSerpis.Ad/ComboBoxHelper.cs" Line="23" Column="33" />
+      <File FileName="Org.InstitutoSerpis.Ad/TreeViewHelper.cs" Line="71" Column="11" />
+      <File FileName="../PArticulo/ArticuloDao.cs" Line="41" Column="27" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">

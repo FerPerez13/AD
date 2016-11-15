@@ -7,16 +7,21 @@ namespace Org.InstitutoSerpis.Ad
 {
 	public class ComboBoxHelper
 	{
-		public static void Fill (ComboBox comboBox, IList list, string propertyName){
+		public static void Fill (ComboBox comboBox, IList list, string propertyName, object id){ //Añadimos un objeto id
 			Type listType = list.GetType();
 			Type elementType = listType.GetGenericArguments()[0];
-			PropertyInfo propertyInfo = elementType.GetProperty(propertyName);
+			PropertyInfo namePropertyInfo = elementType.GetProperty(propertyName);
+			PropertyInfo idPropertyInfo = elementType.GetProperty("Id");
 
 			ListStore listStore = new ListStore (typeof(object));
 
 			TreeIter initialTreeIter = listStore.AppendValues (Null.Value);
-			foreach (object item in list)
-				listStore.AppendValues (item);
+			foreach (object item in list) {
+				TreeIter treeIter = listStore.AppendValues (item);
+				// if item.id == id -> initialTreeIter = treeIter;
+				if (idPropertyInfo.GetValue (item, null).Equals (id))
+					initialTreeIter = treeIter;
+			}
 			comboBox.Model = listStore;
 
 			comboBox.SetActiveIter(initialTreeIter);
@@ -31,7 +36,7 @@ namespace Org.InstitutoSerpis.Ad
 				//Ahora vamos a ver las lineas que son genericas para cualquier clase de objetos
 				object item = tree_model.GetValue(iter,0);
 
-				object value = item == Null.Value ? "<sin asignar>" : propertyInfo.GetValue(item, null);
+				object value = item == Null.Value ? "<sin asignar>" : namePropertyInfo.GetValue(item, null);
 				cellRendererText.Text=value.ToString();
 			});
 		}
@@ -50,6 +55,7 @@ namespace Org.InstitutoSerpis.Ad
 		
 			return item == Null.Value ? null : item.GetType ().GetProperty ("Id").GetValue (item, null);
 		}
+
 	}
 }
 

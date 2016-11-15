@@ -34,14 +34,13 @@ namespace PArticulo
 				string content = entryNombre.Text.Trim ();
 				saveAction.Sensitive = content != string.Empty;
 			};
-
-			fill();
-		
+			fill ();
 		}
+
 
 		private void fill(){
 			IList list = CategoriaDao.GetList ();
-			ComboBoxHelper.Fill (comboBoxCategoria, list, "Nombre");
+			ComboBoxHelper.Fill (comboBoxCategoria, list, "Nombre", null);
 		}
 
 	}

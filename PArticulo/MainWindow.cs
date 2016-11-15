@@ -22,6 +22,10 @@ public partial class MainWindow: Gtk.Window
 		newAction.Activated += delegate {
 			new ArticuloView();
 		};
+		editAction.Activated += delegate {
+			new ArticuloView();
+			Console.WriteLine("Edición activada");
+		};
 		refreshAction.Activated += delegate {
 			fill();
 		};

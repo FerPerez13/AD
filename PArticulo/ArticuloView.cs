@@ -14,16 +14,17 @@ namespace PArticulo
 	public partial class ArticuloView : Gtk.Window
 	{
 
-		public ArticuloView () : base(Gtk.WindowType.Toplevel)
+		public ArticuloView (Articulo articulo) : base(Gtk.WindowType.Toplevel)
 		{
 			this.Build ();
 
-			spinButtonPrecio.Value = 0; //stetic Bug
+			entryNombre.Text = articulo.Nombre;
+
+			spinButtonPrecio.Value = (double)articulo.Precio;
 			saveAction.Sensitive = false;
 
 			saveAction.Activated += delegate {
 				Console.WriteLine ("saveAction.Activated");
-				Articulo articulo = new Articulo();
 				articulo.Nombre = entryNombre.Text;
 				articulo.Precio = (decimal)spinButtonPrecio.Value;
 				articulo.Categoria = (long?)ComboBoxHelper.GetId(comboBoxCategoria);
@@ -34,13 +35,12 @@ namespace PArticulo
 				string content = entryNombre.Text.Trim ();
 				saveAction.Sensitive = content != string.Empty;
 			};
-			fill ();
 		}
 
 
-		private void fill(){
+		private void fillComboBoxCategoria(object categoria){
 			IList list = CategoriaDao.GetList ();
-			ComboBoxHelper.Fill (comboBoxCategoria, list, "Nombre", null);
+			ComboBoxHelper.Fill (comboBoxCategoria, list, "Nombre", categoria);
 		}
 
 	}

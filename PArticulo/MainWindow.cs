@@ -16,15 +16,20 @@ public partial class MainWindow: Gtk.Window
 		App.Instance.DbConnection = new MySqlConnection ("Database=dbprueba;User Id=root;Password=sistemas");
 		App.Instance.DbConnection.Open ();
 		fill ();
+
+		IDbCommand dbCommand = App.Instance.DbConnection.CreateCommand ();
+		dbCommand.CommandText = "update articulo set precio=0 where precio is null";
+		dbCommand.ExecuteNonQuery ();
 	
 		//Acciones de los Botones de la ventana
 
 		newAction.Activated += delegate {
-			new ArticuloView();
+			Articulo articulo = new Articulo();
+			new ArticuloView(articulo);
 		};
 		editAction.Activated += delegate {
-			new ArticuloView();
-			Console.WriteLine("Edición activada");
+			Articulo articulo = new ArticuloDao.Load(TreeViewHelper.GetId(treeView));
+			new ArticuloView(articulo);
 		};
 		refreshAction.Activated += delegate {
 			fill();

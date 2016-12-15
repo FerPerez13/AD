@@ -54,6 +54,7 @@ public class GArticulo {
 	}
 	
 	private static int menu(){
+		System.out.println("");
 		System.out.println("**********************************************************");
 		System.out.println("***                  MENÚ PRINCIPAL                    ***");
 		System.out.println("**********************************************************");

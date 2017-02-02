@@ -21,8 +21,7 @@ public class Hibernate {
 		categoria.setNombre("nueva " + Calendar.getInstance().getTime());
 		entityManager.persist(categoria);
 		
-		List<Categoria> categorias = 
-				entityManager.createQuery("from Categoria", Categoria.class).getResultList();
+		List<Categoria> categorias = entityManager.createQuery("from Categoria", Categoria.class).getResultList();
 		for (Categoria item : categorias)
 			System.out.printf("%d %s\n", item.getId(), item.getNombre());
 		

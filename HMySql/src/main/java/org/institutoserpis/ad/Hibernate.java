@@ -29,6 +29,9 @@ public class Hibernate {
 		entityManager.close();
 
 		entityManagerFactory.close();
+		
+		//Con esto vemos que es lo que tenems en la base de datos de Lamp
+		
 	}
 
 }
